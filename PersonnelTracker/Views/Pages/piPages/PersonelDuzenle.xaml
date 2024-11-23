@@ -1,0 +1,215 @@
+﻿<Page
+    x:Class="PersonnelTracker.Views.Pages.piPages.PersonelDuzenle"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:pages="clr-namespace:PersonnelTracker.ViewModels.Pages.piPages"
+    xmlns:ui="http://schemas.lepo.co/wpfui/2022/xaml"
+    xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+    xmlns:helpers="clr-namespace:PersonnelTracker.Helpers"
+    d:DataContext="{d:DesignInstance Type=pages:PersonelDuzenleViewModel, IsDesignTimeCreatable=False}"
+    Foreground="{DynamicResource TextFillColorPrimaryBrush}"
+    d:Background="White"
+    d:DesignWidth="1024" d:DesignHeight="650"
+    ScrollViewer.CanContentScroll="False"
+    ui:NavigationView.HeaderContent="{Binding HeaderContent}"
+    mc:Ignorable="d">
+    <Grid Margin="0,0,0,24">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <StackPanel
+            Grid.Column="0"
+            Margin="0,0,40,0">
+            <Ellipse
+                Width="200"
+                Height="200"
+                Fill="{ui:ThemeResource ControlStrongStrokeColorDefaultBrush}"
+                Margin="0,0,0,10" />
+            <ui:Button
+                Appearance="Primary"
+                Content="Yakında..."
+                HorizontalAlignment="Center" />
+        </StackPanel>
+        <ScrollViewer Grid.Column="1">
+            <Border
+                Name="OverviewContainer"
+                Background="{ui:ThemeResource CardBackgroundFillColorSecondaryBrush}"
+                BorderBrush="{ui:ThemeResource CardBackgroundFillColorDefaultBrush}"
+                CornerRadius="4"
+                Padding="25">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <StackPanel>
+                        <ui:TextBox
+                            PlaceholderText="TC Kimlik Numarası *"
+                            MaxLength="11"
+                            Icon="{ui:SymbolIcon ContactCard24}"
+                            Margin="0,0,0,20"
+                            Text="{Binding Tckn, Mode=TwoWay}">
+                            <i:Interaction.Behaviors>
+                                <helpers:NumericOnlyBehavior />
+                            </i:Interaction.Behaviors>
+                        </ui:TextBox>
+
+                        <Grid Margin="0,0,0,20">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <ui:TextBox
+                                Grid.Column="0"
+                                PlaceholderText="Ad *"
+                                MaxLength="50"
+                                Icon="{ui:SymbolIcon Person24}"
+                                Margin="0,0,20,0"
+                                Text="{Binding Ad, Mode=TwoWay}" />
+
+                            <ui:TextBox
+                                Grid.Column="1"
+                                PlaceholderText="Soyad *"
+                                MaxLength="50"
+                                Icon="{ui:SymbolIcon Person24}"
+                                Text="{Binding Soyad, Mode=TwoWay}" />
+                        </Grid>
+
+                        <Grid Margin="0,0,0,20">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Grid.Column="0">
+                                <ui:TextBlock Text="Departmanı *" FontTypography="Caption" />
+                                <ComboBox
+                                    ItemsSource="{Binding Departmanlar}"
+                                    DisplayMemberPath="Ad"
+                                    SelectedItem="{Binding SelectedDepartman, Mode=TwoWay}"
+                                    Margin="0,0,20,0" />
+                            </StackPanel>
+
+                            <StackPanel Grid.Column="1">
+                                <ui:TextBlock Text="Pozisyonu *" FontTypography="Caption" />
+                                <ComboBox
+                                    ItemsSource="{Binding Pozisyonlar}"
+                                    DisplayMemberPath="Ad"
+                                    SelectedItem="{Binding SelectedPozisyon, Mode=TwoWay}" />
+                            </StackPanel>
+                        </Grid>
+
+                        <Grid Margin="0,0,0,20">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Grid.Column="0">
+                                <ui:TextBox
+                                    PlaceholderText="Telefon Numarası"
+                                    MaxLength="10"
+                                    Icon="{ui:SymbolIcon Phone24}"
+                                    Margin="0,0,20,0"
+                                    Text="{Binding Telefon, Mode=TwoWay}">
+                                    <i:Interaction.Behaviors>
+                                        <helpers:NumericOnlyBehavior />
+                                    </i:Interaction.Behaviors>
+                                </ui:TextBox>
+                            </StackPanel>
+
+                            <ui:TextBox
+                                Grid.Column="1"
+                                PlaceholderText="E-Posta Adresi"
+                                MaxLength="50"
+                                Icon="{ui:SymbolIcon Mail24}"
+                                Text="{Binding Eposta, Mode=TwoWay}" />
+                        </Grid>
+
+                        <ui:TextBox
+                            PlaceholderText="IBAN Numarası"
+                            MaxLength="50"
+                            Icon="{ui:SymbolIcon BuildingBank24}"
+                            Margin="0,0,0,20"
+                            Text="{Binding Iban, Mode=TwoWay}" />
+
+                        <Grid Margin="0,0,0,20">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <StackPanel Grid.Column="0">
+                                <ui:TextBlock Text="Doğum Tarihi" FontTypography="Caption" />
+                                <DatePicker
+                                    Margin="0,0,20,0"
+                                    SelectedDate="{Binding DogumTarihi, Converter={StaticResource DateOnlyToDateTimeConverter}, Mode=TwoWay}"
+
+                                    DisplayDate="{Binding DogumTarihi, Converter={StaticResource DateOnlyToDateTimeConverter}, Mode=TwoWay}" />
+                            </StackPanel>
+
+                            <StackPanel Grid.Column="1">
+                                <ui:TextBlock Text="İşe Giriş Tarihi *" FontTypography="Caption" />
+                                <DatePicker
+                                    SelectedDate="{Binding IseGirisTarihi, Converter={StaticResource DateOnlyToDateTimeConverter}, Mode=TwoWay}"
+                                    DisplayDate="{Binding IseGirisTarihi, Converter={StaticResource DateOnlyToDateTimeConverter}, Mode=TwoWay}" />
+                            </StackPanel>
+                        </Grid>
+
+                        <ui:TextBox
+                            PlaceholderText="Sabit Maaş *"
+                            MaxLength="26"
+                            Icon="{ui:SymbolIcon WalletCreditCard24}"
+                            Margin="0,0,0,20"
+                            Text="{Binding SabitMaas, Mode=TwoWay, StringFormat='{}{0:N2}'}">
+                            <i:Interaction.Behaviors>
+                                <helpers:NumericOnlyBehavior />
+                            </i:Interaction.Behaviors>
+                        </ui:TextBox>
+
+                        <StackPanel>
+                            <ui:TextBlock Text="Cinsiyeti *" FontTypography="Caption" />
+                            <StackPanel Orientation="Horizontal">
+                                <RadioButton
+                                    Content="Erkek"
+                                    IsChecked="{Binding SelectedCinsiyet, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource GenderToBooleanConverter}, ConverterParameter='E'}" />
+
+                                <RadioButton
+                                    Content="Kadın"
+                                    IsChecked="{Binding SelectedCinsiyet, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource GenderToBooleanConverter}, ConverterParameter='K'}" />
+                            </StackPanel>
+                        </StackPanel>
+                    </StackPanel>
+                    <Grid Grid.Row="1" HorizontalAlignment="Right">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <ui:Button
+                            Grid.Column="0"
+                            Appearance="Secondary"
+                            Content="Vazgeç"
+                            Icon="{ui:SymbolIcon ArrowUndo24}"
+                            FontSize="20"
+                            HorizontalAlignment="Right"
+                            Margin="0,0,10,0"
+                            Command="{Binding NavigateBackCommand}" />
+                        <ui:Button
+                            Grid.Column="1"
+                            Appearance="Secondary"
+                            Content="Değişiklikleri Kaydet"
+                            Icon="{ui:SymbolIcon PersonAdd24}"
+                            FontSize="20"
+                            HorizontalAlignment="Right"
+                            Command="{Binding UpdatePersonelCommand}" />
+                    </Grid>
+                </Grid>
+            </Border>
+        </ScrollViewer>
+    </Grid>
+</Page>
