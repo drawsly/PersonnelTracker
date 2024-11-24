@@ -62,7 +62,7 @@
                         Grid.Row="1"
                         Grid.Column="0"
                         Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"
-                        Text=" 2024 blabla | blabla" />
+                        Text="11/24/2024" />
                     <TextBlock
                         Grid.Row="0"
                         Grid.RowSpan="2"
@@ -79,48 +79,12 @@
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
-                    <TextBlock Grid.Column="0" Text="To clone this repository" />
+                    <TextBlock Grid.Column="0" Text="Bu repository'i klonla" />
                     <TextBlock
                         Grid.Column="1"
                         Foreground="{ui:ThemeResource TextFillColorSecondaryBrush}"
-                        Text="git clone https://github.com/lepoco/wpfui.git" />
+                        Text="git clone https://github.com/drawsly/PersonnelTracker.git" />
                 </Grid>
-                <ui:Anchor
-                    Margin="0"
-                    Padding="16"
-                    HorizontalAlignment="Stretch"
-                    HorizontalContentAlignment="Stretch"
-                    Background="Transparent"
-                    BorderThickness="0,1,0,0"
-                    CornerRadius="0"
-                    NavigateUri="https://github.com/lepoco/wpfui/issues/new/choose">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="Auto" />
-                        </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Column="0" Text="File a bug or request a new sample" />
-                        <ui:SymbolIcon Grid.Column="1" Symbol="Link24" />
-                    </Grid>
-                </ui:Anchor>
-                <ui:Anchor
-                    Margin="0"
-                    Padding="16"
-                    HorizontalAlignment="Stretch"
-                    HorizontalContentAlignment="Stretch"
-                    Background="Transparent"
-                    BorderThickness="0,1,0,1"
-                    CornerRadius="0"
-                    NavigateUri="https://wpfui.lepo.co/">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="Auto" />
-                        </Grid.ColumnDefinitions>
-                        <TextBlock Grid.Column="0" Text="Check out the docs" />
-                        <ui:SymbolIcon Grid.Column="1" Symbol="Link24" />
-                    </Grid>
-                </ui:Anchor>
                 <TextBlock Margin="16" Text="{Binding AppVersion, Mode=OneWay}" />
             </StackPanel>
         </ui:CardExpander>

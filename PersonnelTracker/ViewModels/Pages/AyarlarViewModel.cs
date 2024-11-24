@@ -5,7 +5,7 @@ namespace PersonnelTracker.ViewModels.Pages
 {
     public partial class AyarlarViewModel : ObservableObject
     {
-        private bool IsInitialized = false;
+        private bool _isInitialized = false;
 
         [ObservableProperty]
         private string _appVersion = string.Empty;
@@ -30,7 +30,7 @@ namespace PersonnelTracker.ViewModels.Pages
 
             ApplicationThemeManager.Changed += OnThemeChanged;
 
-            IsInitialized = true;
+            _isInitialized = true;
         }
 
         private void OnThemeChanged(ApplicationTheme currentApplicationTheme, Color systemAccent)
