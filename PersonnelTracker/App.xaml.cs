@@ -22,7 +22,7 @@ namespace PersonnelTracker
             .ConfigureAppConfiguration(c => { c.SetBasePath(Path.GetDirectoryName(Assembly.GetEntryAssembly()!.Location)!); })
             .ConfigureServices((context, services) =>
             {
-                string connString = System.Configuration.ConfigurationManager.ConnectionStrings["PersonelDatabase"].ConnectionString;
+                var connString = System.Configuration.ConfigurationManager.ConnectionStrings["PersonelDatabase"].ConnectionString;
 
                 services.AddDbContext<AppDbContext>(options =>
                         options.UseMySql(connString, ServerVersion.AutoDetect(connString)));
@@ -47,7 +47,7 @@ namespace PersonnelTracker
                 services.AddSingleton<AyarlarPage>();
                 services.AddSingleton<AyarlarViewModel>();
 
-                services.AddSingleton<PersonelIslemleri>();
+                services.AddSingleton<PersonelIslemleriPage>();
                 services.AddSingleton<PersonelIslemleriViewModel>();
 
                 services.AddTransient<PersonelEkle>();
@@ -56,6 +56,8 @@ namespace PersonnelTracker
                 services.AddTransient<PersonelDuzenle>();
                 services.AddTransient<PersonelDuzenleViewModel>();
 
+                services.AddSingleton<OrganizasyonIslemleriPage>();
+                services.AddSingleton<OrganizasyonIslemleriViewModel>();
             })
             .Build();
 
