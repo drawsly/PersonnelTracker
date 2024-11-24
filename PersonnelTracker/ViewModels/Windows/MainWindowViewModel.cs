@@ -23,12 +23,13 @@ namespace PersonnelTracker.ViewModels.Windows
         {
             Content = "Personel İşlemleri",
             Icon = new SymbolIcon { Symbol = SymbolRegular.PersonEdit24 },
-            TargetPageType = typeof(PersonelIslemleri)
+            TargetPageType = typeof(PersonelIslemleriPage)
         },
         new NavigationViewItem
         {
             Content = "Organizasyon İşlemleri",
             Icon = new SymbolIcon { Symbol = SymbolRegular.Organization24 },
+            TargetPageType = typeof(OrganizasyonIslemleriPage)
         },
         new NavigationViewItem
         {

@@ -4,7 +4,7 @@ using Wpf.Ui.Controls;
 namespace PersonnelTracker.Views.Pages
 {
     /// <summary>
-    /// Interaction logic for PersonelIslemleri.xaml
+    /// Interaction logic for PersonelIslemleriPage.xaml
     /// </summary>
     public partial class GostergePaneliPage : INavigableView<GostergePaneliViewModel>
     {
