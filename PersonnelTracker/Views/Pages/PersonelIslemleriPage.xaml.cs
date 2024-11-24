@@ -3,13 +3,13 @@
 namespace PersonnelTracker.Views.Pages
 {
     /// <summary>
-    /// Interaction logic for PersonelIslemleri.xaml
+    /// Interaction logic for PersonelIslemleriPage.xaml
     /// </summary>
-    public partial class PersonelIslemleri : INavigableView<PersonelIslemleriViewModel>
+    public partial class PersonelIslemleriPage : INavigableView<PersonelIslemleriViewModel>
     {
         public PersonelIslemleriViewModel ViewModel { get; }
 
-        public PersonelIslemleri(PersonelIslemleriViewModel viewModel)
+        public PersonelIslemleriPage(PersonelIslemleriViewModel viewModel)
         {
             ViewModel = viewModel;
             DataContext = viewModel;
