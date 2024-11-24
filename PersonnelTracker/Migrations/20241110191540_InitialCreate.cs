@@ -75,7 +75,9 @@ namespace PersonnelTracker.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     departman_id = table.Column<int>(type: "int(11)", nullable: false),
                     pozisyon_id = table.Column<int>(type: "int(11)", nullable: false),
-                    iletisim_bilgileri = table.Column<string>(type: "text", nullable: true, collation: "utf8mb4_general_ci")
+                    Telefon = table.Column<string>(type: "varchar(10)", maxLength: 10, nullable: true, collation: "utf8mb4_general_ci")
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    Eposta = table.Column<string>(type: "varchar(100)", maxLength: 100, nullable: true, collation: "utf8mb4_general_ci")
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     iban = table.Column<string>(type: "varchar(30)", maxLength: 30, nullable: true, collation: "utf8mb4_general_ci")
                         .Annotation("MySql:CharSet", "utf8mb4"),
