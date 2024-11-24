@@ -174,9 +174,15 @@ namespace PersonnelTracker.Migrations
                         .HasColumnType("varchar(30)")
                         .HasColumnName("iban");
 
-                    b.Property<string>("IletisimBilgileri")
-                        .HasColumnType("text")
-                        .HasColumnName("iletisim_bilgileri");
+                    b.Property<string>("Telefon")
+                        .HasMaxLength(10)
+                        .HasColumnType("varchar(10)")
+                        .HasColumnName("telefon");
+
+                    b.Property<string>("Eposta")
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)")
+                        .HasColumnName("eposta");
 
                     b.Property<DateOnly>("IseGirisTarihi")
                         .HasColumnType("date")
