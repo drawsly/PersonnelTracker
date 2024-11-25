@@ -33,8 +33,8 @@ Orta ölçekli işletmeler için geliştirilmiş bir **Personel Takip Programı*
 
 1. Proje Deposunu klonlayın:
    ```sh
-   git clone https://github.com/kullaniciadi/personnel-tracker.git
-   cd personnel-tracker
+   git clone https://github.com/drawsly/PersonnelTracker.git
+   cd PersonnelTracker
 2. Projeyi Başlatın:
     * Visual Studio'da **PersonnelTracker.sln** dosyasını açın ve projeyi çalıştırın.
 3. Bağlantı Dizisi Ayarı:
