@@ -35,8 +35,8 @@ Orta ölçekli işletmeler için geliştirilmiş bir **Personel Takip Programı*
    ```sh
    git clone https://github.com/drawsly/PersonnelTracker.git
    cd PersonnelTracker
-2. Projeyi Başlatın:
-    * Visual Studio'da **PersonnelTracker.sln** dosyasını açın ve projeyi çalıştırın.
+2. Projeyi IDE ortamında başlatın:
+    * Visual Studio'da **PersonnelTracker.sln** dosyasını açın.
 3. Bağlantı Dizisi Ayarı:
     * Properties/App.config dosyasını açın ve kendi MySQL Server bağlantı bilgilerinizi doldurun:
         ```xml
@@ -50,7 +50,8 @@ Orta ölçekli işletmeler için geliştirilmiş bir **Personel Takip Programı*
     * DotNet CLI kullanarak:
         ```sh
         dotnet ef database update
-
+5. Son Olarak
+    * Son olarak projeyi başlatın ve test edin iyi geliştirmeler 😊
 ## Sürüm Geçmişi
 * **v1.0.0**
     * İlk tam sürüm.
